@@ -9,7 +9,7 @@ let timerLeft=1500;//25 minutes
 function updateTimer(){
     let minutes=Math.floor(timerLeft / 60);
     let seconds=timerLeft % 60;
-    let formattedTime='${minutes.toString().padStart(2,"0")} ":" ${seconds.toString().padStart(2,"0")';
+    let formattedTime=`${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
 
 
     timerEl.innerHTML = formattedTime;
@@ -19,19 +19,19 @@ startEl.addEventListener("click",() =>{
     interval = setInterval(()=>{
         timerLeft--;
         updateTimer();
-        if(timeLeft===0){
+        if(timerLeft===0){
             clearInterval(interval);
             alert("Times Up!");
             timerLeft=1500;
         }
     },1000);
 });
-restartEl.addEventListener("click",() =>{
-    clearInterval(interval);
-});
 stopEl.addEventListener("click",() =>{
     clearInterval(interval);
-    timeLeft=1500;
+});
+restartEl.addEventListener("click",() =>{
+    clearInterval(interval);
+    timerLeft=1500;
     updateTimer();
 });
 
