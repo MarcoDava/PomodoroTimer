@@ -11,15 +11,24 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="title">Pomodoro Timer</h1>
-            <div class="rotating-line">
-
-            </div> 
-
+            <h1 class="title">Locked In Timer</h1>
+            <div class="user-question">
+                <p>
+                    Enter the time you want to work for and click start.
+                </p>
+            </div>
+            
+            
             <div class="circle">
                 <div class="dot"></div>
-                <p class="timer" id="timer">25:00</p>
+                <div class="input-text">
+                    <input type="text" id="numbers-only" placeholder="hrs" class="num-of-hours" onkeypress='validate(event)'>
+                    <p class="input-display">:</p>
+                    <input type="text" id="numbers-only" placeholder="mins" class="num-of-mins" onkeypress='validate(event)'>
+                </div>
+                <!--<p class="timer" id="timer"></p>-->
             </div> 
+            
 
             <div class="button-wrapper">
                 <button id="start">Start</button>

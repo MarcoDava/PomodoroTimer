@@ -21,12 +21,57 @@ body {
     background-color: #f0f0f0;
 }
 
+.input-text{
+    display: flex;
+    gap:10px;
+}
+
+.user-question {
+    font-family: Roboto, sans-serif;
+}
+
+.num-of-mins,.num-of-hours{
+    width:80px;
+    border:none;
+    
+
+}
+
+.num-of-hours:click, .num-of-mins:click{
+    border:none;
+}
+
+.num-of-hours::-webkit-input-placeholder, .num-of-mins::-webkit-input-placeholder { 
+    text-align: center; 
+    font-size:30px;
+    font-family: Roboto,sans-serif;
+}
+
 .circle {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 400px;
     border: 2px solid #3498db;
     border-radius: 50%;
+}
+
+.dot.paused {
+    animation-play-state: paused;
+}
+
+.dot.reset {
+    transform: rotate(0deg);
+}
+
+.dot.paused {
+    animation-play-state: paused;
+}
+
+.dot.reset {
+    transform: rotate(0deg);
 }
 
 .dot {
