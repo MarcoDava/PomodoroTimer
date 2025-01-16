@@ -23,7 +23,7 @@ body {
 
 .input-text{
     display: flex;
-    gap:10px;
+    gap:5px;
 }
 
 .user-question-text {
@@ -31,28 +31,26 @@ body {
 }
 
 #num-of-mins,#num-of-hours{
-    width:80px;
+    width:175px;
     border:none;
     background-color: #f0f0f0;
     text-align: center;
     font: Roboto,sans-serif;
-    font-size: 30px;
-    color: transparent;
-    text-shadow: 0 0 0 #000000;
+    font-size: 72px;
 }
 
-#num-of-hours:click, #num-of-mins:click{
-    border:none;
+#num-of-hours:focus, #num-of-mins:focus{
+    outline:none;
 }
 
 #num-of-hours::-webkit-input-placeholder, #num-of-mins::-webkit-input-placeholder { 
     text-align: center; 
-    font-size:30px;
+    font-size:72px;
     font-family: Roboto,sans-serif;
 }
 
-.input-display{
-    font-size: 30px;
+#input-display{
+    font-size: 72px;
 }
 
 .circle-container {
@@ -60,18 +58,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border: 2px solid #3498db;
     border-radius: 50%;
-}
-
-#dot.paused {
-    animation-play-state: paused;
-}
-
-#dot.reset {
-    transform: rotate(0deg);
 }
 
 #dot.paused {
@@ -96,10 +86,10 @@ body {
 
 @keyframes rotate {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) translate(200px) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(250px) rotate(0deg);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg) translate(200px) rotate(-360deg);
+        transform: translate(-50%, -50%) rotate(360deg) translate(250px) rotate(-360deg);
     }
 }
 
@@ -124,6 +114,10 @@ button{
 }
 button :hover{
     opacity: 70%;
+}
+
+.user-prompt{
+    color:red;
 }
 
 /* #start{

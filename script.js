@@ -18,7 +18,10 @@ let started = false;
 let timerEl = document.createElement("p");
 timerEl.setAttribute("class", "timer");
 timerEl.setAttribute("id", "timer");
+
 dotEl.classList.add('paused');
+stopEl.style.display="none";
+restartEl.style.display="none";
 
 function validate(evt) {
     var theEvent = evt || window.event;
@@ -61,15 +64,13 @@ function takeInput() {
             minsInput = parseInt(minField.value)||0;
             started = true;
             timerLeft = hoursInput * 3600 + minsInput * 60;
-            document.querySelector(".circle-container").appendChild(timerEl);
-            timerEl.setAttribute("class", "timer");
-            timerEl.setAttribute("id", "timer");
-            updateTimer();
-            hourField.style.display="none";//maybe have it so before the timer starts, restart and stop buttons are disabled and when we press start, there is an animation when the come in
-            minField.style.display="none";
-            inputDisplay.style.display="none";
-            return true;
+            displayTimer();
+            userPromptText.textContent="";
         }
+        else{
+            
+        }
+        return true;
     }
     else{
         return false;
@@ -78,6 +79,15 @@ function takeInput() {
 
 function displayTimer() {
     userQuestionText.display="none";
+    document.querySelector(".circle-container").appendChild(timerEl);
+    timerEl.setAttribute("class", "timer");
+    timerEl.setAttribute("id", "timer");
+    updateTimer();
+    hourField.style.display="none";//maybe have it so before the timer starts, restart and stop buttons are disabled and when we press start, there is an animation when the come in
+    minField.style.display="none";
+    inputDisplay.style.display="none";
+    stopEl.style.display="inline";
+    restartEl.style.display="inline";
 }
 
 function displayInput() {
@@ -87,8 +97,13 @@ function displayInput() {
     userQuestionText.innerHTML="How long would you like to set the timer for?";
     hourField.style.display = "inline"; // Show input fields
     minField.style.display = "inline";
-    hourField.textContent="";
-    minField.textContent="";
+    inputDisplay.style.display="inline";
+    stopEl.style.display="none";
+    restartEl.style.display="none";
+    hourField.value="";
+    minField.value="";
+    inputDisplay.textContent=":";
+    
 }
 
 function updateTimer() {
@@ -102,27 +117,52 @@ function updateTimer() {
     // or just simply change the formatted time to stop printing hours when there are no more hours
 }
 
+function runTimer(){
+    if (!interval) {
+        console.log("Got to here as well"); 
+        clearInterval(interval);
+        interval = setInterval(() => {
+            timerLeft--;
+            updateTimer();
+            if (timerLeft === 0) {
+                clearInterval(interval);
+                interval = null; // Clear the reference
+                alert("Time's Up!");
+                displayInput();
+            }
+        }, 1000);
+        dotEl.classList.remove('reset');
+        dotEl.classList.remove('paused');
+    }
+}
+
 startEl.addEventListener("click", () => {
     if(takeInput()){
-        displayTimer();
+        if(!started){
+            displayTimer();
+        }
         console.log("got to here");
         //possibly add a countdown, so whenever start is pressed, it counts down from 3?
-        if (!interval) {
-            console.log("Got to here as well"); 
-            clearInterval(interval);
-            interval = setInterval(() => {
-                timerLeft--;
-                updateTimer();
-                if (timerLeft === 0) {
-                    clearInterval(interval);
-                    interval = null; // Clear the reference
-                    alert("Time's Up!");
-                    displayInput();
-                }
-            }, 1000);
-            dotEl.classList.remove('reset');
-            dotEl.classList.remove('paused');
-        }   
+        runTimer();   
+    }
+});
+
+hourField.addEventListener("keydown", (event) => {
+    if(event.key=== 'Enter'){
+        minField.focus();
+    }
+});
+
+minField.addEventListener("keydown", (event) => {
+    if(event.key=== 'Enter'){
+        if(takeInput()){
+            if(!started){
+                displayTimer();
+            }
+            console.log("got to here");
+            //possibly add a countdown, so whenever start is pressed, it counts down from 3?
+            runTimer();   
+        }
     }
 });
 
