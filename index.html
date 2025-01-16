@@ -7,29 +7,29 @@
         <title>
             Marco's Pomodoro Timer
         </title>
-        <link rel="stylesheet" href="PomodoroTimerStyles.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="container">
             <h1 class="title">Locked In Timer</h1>
             <div class="user-question">
-                <p class="user-question-text">
+                <p id="user-question-text">
                     Enter the time you want to work for and click start.
                 </p>
             </div>
             
             
-            <div class="circle">
-                <div class="dot"></div>
+            <div class="circle-container">
+                <div id="dot"></div>
                 <div class="input-text">
-                    <input type="text" id="numbers-only" placeholder="hrs" class="num-of-hours" onkeypress='validate(event)'>
-                    <p class="input-display">:</p>
-                    <input type="text" id="numbers-only" placeholder="mins" class="num-of-mins" onkeypress='validate(event)'>
+                    <input type="text" placeholder="hrs" id="num-of-hours" onkeypress='validate(event)'>
+                    <p id="input-display">:</p>
+                    <input type="text" placeholder="mins" id="num-of-mins" onkeypress='validate(event)'>
                 </div>
                 <!--<p class="timer" id="timer"></p>-->
             </div> 
             <div class="user-prompt">
-                <p class="user-prompt-text"></p>
+                <p id="user-prompt-text"></p>
             </div>
             
 
@@ -39,6 +39,6 @@
                 <button id="restart">Restart</button>
             </div>
         </div>
-        <script src="PomodoroTimer.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

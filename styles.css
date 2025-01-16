@@ -30,7 +30,7 @@ body {
     font-family: Roboto, sans-serif;
 }
 
-.num-of-mins,.num-of-hours{
+#num-of-mins,#num-of-hours{
     width:80px;
     border:none;
     background-color: #f0f0f0;
@@ -41,11 +41,11 @@ body {
     text-shadow: 0 0 0 #000000;
 }
 
-.num-of-hours:click, .num-of-mins:click{
+#num-of-hours:click, #num-of-mins:click{
     border:none;
 }
 
-.num-of-hours::-webkit-input-placeholder, .num-of-mins::-webkit-input-placeholder { 
+#num-of-hours::-webkit-input-placeholder, #num-of-mins::-webkit-input-placeholder { 
     text-align: center; 
     font-size:30px;
     font-family: Roboto,sans-serif;
@@ -55,7 +55,7 @@ body {
     font-size: 30px;
 }
 
-.circle {
+.circle-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -66,23 +66,23 @@ body {
     border-radius: 50%;
 }
 
-.dot.paused {
+#dot.paused {
     animation-play-state: paused;
 }
 
-.dot.reset {
+#dot.reset {
     transform: rotate(0deg);
 }
 
-.dot.paused {
+#dot.paused {
     animation-play-state: paused;
 }
 
-.dot.reset {
-    transform: rotate(0deg);
+#dot.reset {
+    transform: translate(-50% -50%) rotate(0deg);
 }
 
-.dot {
+#dot {
     position: absolute;
     top: 50%;
     left: 50%;
