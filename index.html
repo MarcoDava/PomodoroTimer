@@ -17,19 +17,46 @@
                     How long would you like to set the timer for?
                 </p>
             </div>
-            
-            
-            <div class="circle-container">
-                <div id="dot"></div>
-                <div class="input-text">
-                    <input type="text" placeholder="hour" id="num-of-hours" onkeypress='validate(event)'>
-                    <p id="input-display">:</p>
-                    <input type="text" placeholder="mins" id="num-of-mins" onkeypress='validate(event)'>
+            <nav class="navigation">
+                <div class="horizontal-nav">
+                    <ul class="nav-list">
+                        <li class="nav-list-item" id="timer-list-item">
+                            <button class="nav-buttons" id="timer-tab">Timer</button>
+                        </li>
+                        <li class="nav-list-item" id="todo-list-item">
+                            <button class="nav-buttons" id="todo-tab">To-Do List</button>
+                        </li class="nav-list-item" id="task-list-item">
+                        <li>
+                            <button class="nav-buttons" id="task-tab">Task Description</button>
+                        </li>
+                        <li class="nav-list-item" id="notes-list-item">
+                            <button class="nav-buttons" id="notes-tab">Notes</button>
+                        </li>
+                    </ul>
                 </div>
-                <div timer-display>
-                    <p class="timer" id="timer"></p>
+            </nav>
+            <div class="container-features">
+        
+
+                <div class="counter-container">
+                    <div id="counter">
+                        <p id="counter-text">0</p>
+
+                    </div>
                 </div>
-            </div> 
+
+                <div class="circle-container">
+                    <div id="dot"></div>
+                    <div class="input-text">
+                        <input type="text" placeholder="hour" id="num-of-hours" onkeypress='validate(event)'>
+                        <p id="input-display">:</p>
+                        <input type="text" placeholder="mins" id="num-of-mins" onkeypress='validate(event)'>
+                    </div>
+                    <div timer-display>
+                        <p class="timer" id="timer"></p>
+                    </div>
+                </div> 
+            </div>
 
             <div class="user-prompt">
                 <p id="user-prompt-text"></p>
@@ -37,9 +64,9 @@
             
 
             <div class="button-wrapper">
-                <button id="start">Start</button>
-                <button id="stop">Stop</button>
-                <button id="restart">Restart</button>
+                <button class="timer-buttons" id="start">Start</button>
+                <button class="timer-buttons" id="stop">Stop</button>
+                <button class="timer-buttons" id="restart">Restart</button>
             </div>
         </div>
         <script src="script.js"></script>

@@ -1,9 +1,10 @@
 /*PLANS FOR THE FUTURE:
 - Heatmap of total productivity of the day
-- Stop watch mode
-- Adding purposeful animations
+- Stop watch mode - (Upcoming feature)
+- Adding purposeful animations - (Upcoming feature)
 - Adding a dark mode
-- Adding the "tasks done today" feature that rates their total productivity
+- Adding the "tasks done today" feature that rates their total productivity - (Currently working on this)
+- Adding todo list feature
 */
 const startEl = document.getElementById("start");
 const restartEl = document.getElementById("restart");
@@ -23,10 +24,7 @@ let interval;
 let timerLeft = 0;
 let started = false;
 
-timerEl.style.display="none";
 dotEl.classList.add('paused');
-stopEl.style.display="none";
-restartEl.style.display="none";
 
 function validate(evt) {
     var theEvent = evt || window.event;
