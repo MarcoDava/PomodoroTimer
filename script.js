@@ -1,7 +1,15 @@
+/*PLANS FOR THE FUTURE:
+- Heatmap of total productivity of the day
+- Stop watch mode
+- Adding purposeful animations
+- Adding a dark mode
+- Adding the "tasks done today" feature that rates their total productivity
+*/
 const startEl = document.getElementById("start");
 const restartEl = document.getElementById("restart");
 const stopEl = document.getElementById("stop");
 const dotEl = document.getElementById("dot");
+const timerEl = document.getElementById("timer");
 const userPromptText=document.getElementById("user-prompt-text");
 const userQuestionText=document.getElementById("user-question-text");
 
@@ -15,10 +23,7 @@ let interval;
 let timerLeft = 0;
 let started = false;
 
-let timerEl = document.createElement("p");
-timerEl.setAttribute("class", "timer");
-timerEl.setAttribute("id", "timer");
-
+timerEl.style.display="none";
 dotEl.classList.add('paused');
 stopEl.style.display="none";
 restartEl.style.display="none";
@@ -65,10 +70,6 @@ function takeInput() {
             started = true;
             timerLeft = hoursInput * 3600 + minsInput * 60;
             displayTimer();
-            userPromptText.textContent="";
-        }
-        else{
-            
         }
         return true;
     }
@@ -78,10 +79,9 @@ function takeInput() {
 }
 
 function displayTimer() {
-    userQuestionText.display="none";
-    document.querySelector(".circle-container").appendChild(timerEl);
-    timerEl.setAttribute("class", "timer");
-    timerEl.setAttribute("id", "timer");
+    userQuestionText.innerHTML="";
+    userPromptText.textContent="";
+    timerEl.style.display="inline";
     updateTimer();
     hourField.style.display="none";//maybe have it so before the timer starts, restart and stop buttons are disabled and when we press start, there is an animation when the come in
     minField.style.display="none";
@@ -91,15 +91,13 @@ function displayTimer() {
 }
 
 function displayInput() {
-    if (timerEl) {
-        timerEl.remove();
-    }
     userQuestionText.innerHTML="How long would you like to set the timer for?";
     hourField.style.display = "inline"; // Show input fields
     minField.style.display = "inline";
     inputDisplay.style.display="inline";
     stopEl.style.display="none";
     restartEl.style.display="none";
+    timerEl.style.display="none";
     hourField.value="";
     minField.value="";
     inputDisplay.textContent=":";

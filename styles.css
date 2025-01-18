@@ -1,14 +1,17 @@
-.container{
-    margin:0 auto;
-    max-width:400px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px;
     text-align: center;
-    padding:20px;
+    padding: 20px;
     font-family: Roboto, sans-serif;
 }
 
-.title{
+.title {
     font-size: 36px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     color: #2c3e50;
 }
 
@@ -21,35 +24,38 @@ body {
     background-color: #f0f0f0;
 }
 
-.input-text{
+.input-text {
     display: flex;
-    gap:5px;
+    gap: 5px;
 }
 
 .user-question-text {
     font-family: Roboto, sans-serif;
 }
 
-#num-of-mins,#num-of-hours{
-    width:175px;
-    border:none;
+#num-of-mins,
+#num-of-hours {
+    width: 175px;
+    border: none;
     background-color: #f0f0f0;
     text-align: center;
-    font: Roboto,sans-serif;
+    font: Roboto, sans-serif;
     font-size: 72px;
 }
 
-#num-of-hours:focus, #num-of-mins:focus{
-    outline:none;
+#num-of-hours:focus,
+#num-of-mins:focus {
+    outline: none;
 }
 
-#num-of-hours::-webkit-input-placeholder, #num-of-mins::-webkit-input-placeholder { 
-    text-align: center; 
-    font-size:72px;
-    font-family: Roboto,sans-serif;
+#num-of-hours::-webkit-input-placeholder,
+#num-of-mins::-webkit-input-placeholder {
+    text-align: center;
+    font-size: 72px;
+    font-family: Roboto, sans-serif;
 }
 
-#input-display{
+#input-display {
     font-size: 72px;
 }
 
@@ -62,6 +68,7 @@ body {
     height: 500px;
     border: 2px solid #3498db;
     border-radius: 50%;
+    margin: 20px 0;
 }
 
 #dot.paused {
@@ -81,7 +88,7 @@ body {
     background-color: #7da1b9;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: rotate 4s linear infinite;
+    animation: rotate 60s linear infinite;
 }
 
 @keyframes rotate {
@@ -93,31 +100,30 @@ body {
     }
 }
 
-
-.timer{
+.timer {
     margin: auto;
     font-size: 72px;
-    color:#2c3e50;
+    color: #2c3e50;
 }
 
-button{
+button {
     font-size: 18px;
-    padding:10px 20px;
+    padding: 10px 20px;
     margin: 10px;
     color: white;
     background-color: #2c3e50;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: opacity .3s
-    ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
-button :hover{
+
+button:hover {
     opacity: 70%;
 }
 
-.user-prompt{
-    color:red;
+.user-prompt {
+    color: red;
 }
 
 /* #start{
@@ -125,9 +131,9 @@ button :hover{
 }
 
 #stop{
-    
+
 }
 
 #restart{
-    
+
 } */

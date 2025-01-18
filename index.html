@@ -14,7 +14,7 @@
             <h1 class="title">Locked In Timer</h1>
             <div class="user-question">
                 <p id="user-question-text">
-                    Enter the time you want to work for and click start.
+                    How long would you like to set the timer for?
                 </p>
             </div>
             
@@ -26,8 +26,11 @@
                     <p id="input-display">:</p>
                     <input type="text" placeholder="mins" id="num-of-mins" onkeypress='validate(event)'>
                 </div>
-                <!--<p class="timer" id="timer"></p>-->
+                <div timer-display>
+                    <p class="timer" id="timer"></p>
+                </div>
             </div> 
+
             <div class="user-prompt">
                 <p id="user-prompt-text"></p>
             </div>
